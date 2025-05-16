@@ -2,6 +2,7 @@ package entity;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -15,10 +16,22 @@ public class Player extends Entity{
 	GamePanel gp;
 	KeyHandler keyH;
 	
+	public final int screenX;
+	public final int screenY;
+	
 	public Player(GamePanel gp, KeyHandler keyH) {
 		
 		this.gp = gp;
 		this.keyH = keyH;
+		
+		screenX = gp.ScreenWidth/2 - (gp.TileSize/2);
+		screenY = gp.ScreenHeight/2 - (gp.TileSize/2);
+		
+		solidArea = new Rectangle();
+		solidArea.x = 8;
+		solidArea.y = 16;
+		solidArea.width = 28;
+		solidArea.height = 28;
 		
 		setDefaultValue();
 		getPlayerImage();
@@ -26,8 +39,8 @@ public class Player extends Entity{
 	}
 	public void setDefaultValue() {
 		
-		x = 100;
-		y = 100;
+		worldX = gp.TileSize * 23;
+		worldY = gp.TileSize * 21;
 		speed = 4;
 		direction = "down";
 		
@@ -51,25 +64,35 @@ public class Player extends Entity{
 	}
 	public void update() {
 		
-		if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true) {
+		if(keyH.upPressed == true || keyH.downPressed == true || 
+				keyH.leftPressed == true || keyH.rightPressed == true) {
 			if(keyH.upPressed == true) {
-				direction = "up";
-				y -= speed;	
+				direction = "up";					
 			}
 			else if(keyH.downPressed == true) {
 				direction = "down";
-				y += speed;
 			}
 			else if(keyH.leftPressed == true) {
 				direction = "left";
-				x -= speed;
 			}
 			else if(keyH.rightPressed == true) {
 				direction ="right";
-				x += speed;
 			}
-			
-	//
+		
+			//check tile collision
+			collisionOn = false;
+			gp.cChecker.checkTile(this);
+	
+			//if collision is false, player can move
+			if(collisionOn == false) {
+				
+				switch(direction) {
+				case "up":	 worldY -= speed; break;
+				case "down": worldY += speed; break;
+				case "left": worldX -= speed; break;
+				case "right":worldX += speed; break;
+				}
+			}
 			spriteCounter ++;
 			if(spriteCounter > 12) {
 				if(spriteNum == 1) {
@@ -128,7 +151,7 @@ public class Player extends Entity{
 			}
 			break;
 		}
-		g2.drawImage(image, x, y, gp.TileSize, gp.TileSize, null);
+		g2.drawImage(image, screenX, screenY, gp.TileSize, gp.TileSize, null);
 		
 	}
 }
