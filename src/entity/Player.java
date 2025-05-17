@@ -41,7 +41,7 @@ public class Player extends Entity{
 		
 		worldX = gp.TileSize * 23;
 		worldY = gp.TileSize * 21;
-		speed = 3;
+		speed = 10;
 		direction = "down";
 		
 	}
