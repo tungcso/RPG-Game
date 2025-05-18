@@ -50,6 +50,7 @@ public class TileManager {
 			
 			tile[5] = new Tile();
 			tile[5].image = ImageIO.read(getClass().getResourceAsStream("/tiles/fire.png"));
+			tile[5].collision = true;
 			
 			tile[6] = new Tile();
 			tile[6].image = ImageIO.read(getClass().getResourceAsStream("/tiles/hole.png"));
@@ -59,7 +60,7 @@ public class TileManager {
 			
 			tile[8] = new Tile();
 			tile[8].image = ImageIO.read(getClass().getResourceAsStream("/tiles/tree1.png"));
-			
+			tile[8].collision = true;
 			
 		}catch(IOException e) {
 			e.printStackTrace();
