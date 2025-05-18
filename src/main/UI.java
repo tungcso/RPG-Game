@@ -54,7 +54,7 @@ public class UI {
 			y = gp.ScreenHeight/2 - (gp.TileSize*2) + 50;
 			g2.drawString(text, x, y);
 	
-			text = "Your time is :" + dFormat.format(playTime) + "!";
+			text = "Your time is : " + dFormat.format(playTime) + "!";
 			textLength = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
 			
 			x = gp.ScreenWidth/2 - textLength/2;
