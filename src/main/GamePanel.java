@@ -8,6 +8,7 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 import Tile.TileManager;
+import entity.Entity;
 import entity.Player;
 import object.SuperObject;
 
@@ -31,18 +32,27 @@ public class GamePanel extends JPanel implements Runnable{
 	int FPS = 60;
 	
 	TileManager tileM = new TileManager(this);
-	KeyHandler keyH = new KeyHandler();
+	public KeyHandler keyH = new KeyHandler(this);
 	Sound music = new Sound();
 	Sound se = new Sound();
 	
 	public CollisionChecker cChecker = new CollisionChecker(this);
 	public AssetSetter aSetter = new AssetSetter(this);
 	public UI ui = new UI(this);
+	public EventHandler eHandler = new EventHandler(this);
 	Thread gameThread;
 	
 	//ENTITY AND OBJECT
 	public Player player = new Player(this,keyH);
 	public SuperObject obj[] = new SuperObject[10];
+	public Entity NPC[] = new Entity[10];
+	
+	//Game State
+	public int gameState;
+	public final int titleState = 0;
+	public final int playState =  1;
+	public final int pauseState = 2;
+	public final int dialogueState = 3;
 	
 	//set player's default position
 	
@@ -59,8 +69,10 @@ public class GamePanel extends JPanel implements Runnable{
 	public void setupGame() {
 		
 		aSetter.setObject();
-		
+		aSetter.setNPC();
 		playMusic(0);
+		stopMusic();
+		gameState = titleState;
 	}
 
 	public void startGameThread() {
@@ -131,7 +143,21 @@ public class GamePanel extends JPanel implements Runnable{
 		
 	}
 	public void update() {
-		player.update();
+		
+		if(gameState == playState) {
+			player.update();
+			
+			//NPC
+			for(int i = 0; i < NPC.length; i++) {
+				if(NPC[i] != null) {
+					NPC[i].update();
+				}
+			}
+		}
+		
+		if(gameState == pauseState) {
+			//nothing
+		}
 
 	}
 	public void paintComponent(Graphics g) {
@@ -140,23 +166,39 @@ public class GamePanel extends JPanel implements Runnable{
 		
 		Graphics2D g2 = (Graphics2D)g;
 		
-		//Tile
-		tileM.draw(g2);
-		
-		//Object
-		for(int i = 0; i < obj.length; i++) {
-			if(obj[i] != null) {
-				obj[i].draw(g2,this);
+		//Title screen
+		if(gameState == titleState) {
+			ui.draw(g2);
+		}
+		//OTHER
+		else {
+			//Tile
+			tileM.draw(g2);
+			
+			//Object
+			for(int i = 0; i < obj.length; i++) {
+				if(obj[i] != null) {
+					obj[i].draw(g2,this);
+				}
 			}
+			
+			//NPC
+			for(int i = 0; i< NPC.length; i++) {
+				if(NPC[i] != null ) {
+					NPC[i].draw(g2);	
+				}
+			}
+			
+			//Player
+			player.draw(g2);
+		
+			//UI
+			ui.draw(g2);
+			
+			g2.dispose();
 		}
 		
-		//Player
-		player.draw(g2);
-	
-		//UI
-		ui.draw(g2);
 		
-		g2.dispose();
 	}
 	
 	public void playMusic(int i) {
