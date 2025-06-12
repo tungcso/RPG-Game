@@ -4,13 +4,15 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.swing.JPanel;
 
 import Tile.TileManager;
 import entity.Entity;
 import entity.Player;
-import object.SuperObject;
 
 public class GamePanel extends JPanel implements Runnable{
 	
@@ -44,8 +46,9 @@ public class GamePanel extends JPanel implements Runnable{
 	
 	//ENTITY AND OBJECT
 	public Player player = new Player(this,keyH);
-	public SuperObject obj[] = new SuperObject[10];
+	public Entity obj[] = new Entity[10];
 	public Entity NPC[] = new Entity[10];
+	ArrayList<Entity> entityList = new ArrayList<>();
 	
 	//Game State
 	public int gameState;
@@ -175,23 +178,41 @@ public class GamePanel extends JPanel implements Runnable{
 			//Tile
 			tileM.draw(g2);
 			
-			//Object
-			for(int i = 0; i < obj.length; i++) {
-				if(obj[i] != null) {
-					obj[i].draw(g2,this);
+			//add entity to list
+			entityList.add(player);
+			
+			for(int i = 0; i < NPC.length; i++) {
+				if(NPC[i] != null) {
+					entityList.add(NPC[i]);
 				}
 			}
-			
-			//NPC
-			for(int i = 0; i< NPC.length; i++) {
-				if(NPC[i] != null ) {
-					NPC[i].draw(g2);	
-				}
-			}
-			
-			//Player
-			player.draw(g2);
 		
+			for (int i = 0; i < obj.length; i++) {
+				if(obj[i] != null) {
+					entityList.add(obj[i]);
+				}
+			}
+			
+			//Sort
+			Collections.sort(entityList, new Comparator<Entity>() {
+
+				public int compare(Entity e1, Entity e2) {
+					
+					int result = Integer.compare(e1.worldX, e2.worldY);
+					return result;
+				}		
+			});
+		
+			//draw entities
+			for(int i = 0; i < entityList.size(); i++) {
+				entityList.get(i).draw(g2);
+			}
+			// Empty Entity
+			for(int i = 0; i < entityList.size(); i++) {
+				entityList.remove(i);
+			}
+			
+			
 			//UI
 			ui.draw(g2);
 			
