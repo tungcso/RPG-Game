@@ -12,19 +12,26 @@ public class NPC_OldMan extends Entity{
 		direction = "down";
 		speed = 1;
 		
+		solidArea.x = 1;
+		solidArea.y = 2;
+		solidArea.width = 40;
+		solidArea.height = 40;
+		solidAreaDefaultX = solidArea.x;
+		solidAreaDefaultY = solidArea.y;
 		setDialogue();
 		getImage();
+		
 	}
 	public void getImage() {
 		
-			up1 = setup("/NPC/oldman_up_1");
-			up2 = setup("/NPC/oldman_up_2");
-			down1 = setup("/NPC/oldman_down_1");
-			down2 = setup("/NPC/oldman_down_2");
-			left1 = setup("/NPC/oldman_left_1");
-			left2 = setup("/NPC/oldman_left_2");
-			right1 = setup("/NPC/oldman_right_1");
-			right2 = setup("/NPC/oldman_right_2");
+			up1 = setup("/NPC/oldman_up_1", gp.TileSize, gp.TileSize);
+			up2 = setup("/NPC/oldman_up_2", gp.TileSize, gp.TileSize);
+			down1 = setup("/NPC/oldman_down_1", gp.TileSize, gp.TileSize);
+			down2 = setup("/NPC/oldman_down_2", gp.TileSize, gp.TileSize);
+			left1 = setup("/NPC/oldman_left_1", gp.TileSize, gp.TileSize);
+			left2 = setup("/NPC/oldman_left_2", gp.TileSize, gp.TileSize);
+			right1 = setup("/NPC/oldman_right_1", gp.TileSize, gp.TileSize);
+			right2 = setup("/NPC/oldman_right_2", gp.TileSize, gp.TileSize);
 
 	}
 	

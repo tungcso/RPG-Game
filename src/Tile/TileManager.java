@@ -16,30 +16,53 @@ public class TileManager {
 
 	GamePanel gp;
 	public Tile[] tile;
-	public int mapTileNum[][];
+	public int mapTileNum[][][];
 	
 	public TileManager(GamePanel gp) {
 		 this.gp = gp;
 		  
 		 tile = new Tile[100];
-		 mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
+		 mapTileNum = new int[gp.maxMap][gp.maxWorldCol][gp.maxWorldRow];
 		 
 		 getTileImage();
-		 loadMap("/maps/test2.txt");
+		 loadMap("/maps/ConSongQue.txt", 0);
+		 loadMap("/maps/map1_final.txt", 1);
 	}
 	
 	public void getTileImage() {
 	
-			setup(0,"dirt", false);
-			setup(1,"floor1", false);
-			setup(2,"floor1", false);
-			setup(3,"floor2", false);
-			setup(4,"water", false);
-			setup(5,"fire", false);
-			setup(6,"hole", false);
-			setup(7,"water", false);
-			setup(8,"tree1", false);
+			setup(0,"Floor1", false);
+			setup(1,"Floor2", false);
+			setup(2,"Wall", true);
+			setup(3,"DoorOpened", false);
+			setup(4,"DoorClosed", false);
+			setup(5,"Exit", false);
+			setup(6,"CageWall", true);
+			setup(7,"CageDoorClosed", false);
+			setup(8,"CageDoorOpened", false);
+			setup(9,"CageDoorOpened", false);
+			setup(10,"BedInCage", true);
+			setup(11,"SparkingEquipment", false);
+			setup(12,"Corpse", false);
+			setup(13,"BedInCage", true);
+			setup(14,"BloodPool1", false);
+			setup(15,"BloodPool2", false);
+			setup(16,"Warning Sign ", false);	
 		
+		setup(0,"DatTrong", false);
+		setup(1,"Nuoc", true);
+		setup(2,"VungNuoc", true);
+		setup(3,"CaChet", false);
+		setup(4,"XuongHaMa", true);
+		setup(5,"Mau", true);
+		setup(6,"Cay", true);
+		setup(7,"grass", false);
+		setup(8,"ManhTren", true);
+		setup(9,"Ongthai", false);
+		setup(10,"CoUa", false);
+		setup(11,"CayBiChat", false);
+		setup(12,"hole", false);
+		setup(13,"fire", false);
 	}
 	
 	
@@ -59,7 +82,7 @@ public class TileManager {
 		}
 	}
 	
-	public void loadMap(String filePath) {
+	public void loadMap(String filePath, int map) {
 		
 		try {
 			InputStream is = getClass().getResourceAsStream(filePath);
@@ -78,7 +101,7 @@ public class TileManager {
 					
 					int num = Integer.parseInt(numbers[col]);
 					
-					mapTileNum[col][row] = num;
+					mapTileNum[map][col][row] = num;
 					col++;
 				}
 				if(col == gp.maxWorldCol) {
@@ -102,7 +125,7 @@ public class TileManager {
 		
 		while(worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow) {
 			
-			int tileNum = mapTileNum[worldCol][worldRow];
+			int tileNum = mapTileNum[gp.currentMap][worldCol][worldRow];
 				
 //video 6
 			int worldX = worldCol * gp.TileSize;

@@ -6,13 +6,26 @@ import main.GamePanel;
 
 public class OBJ_Heart extends Entity{
 
+	GamePanel gp;
+	
 	public OBJ_Heart(GamePanel gp) {
 		
 		super(gp);	
-		name = "Heart";
-			image = setup("/objects/heart_full");
-			image2 = setup("/objects/heart_full");
-			image3 = setup("/objects/heart_full");
+		this.gp = gp;
 		
+		type = type_pickupOnly;
+		name = "Heart";
+		value = 2;
+		down1 = setup("/objects/heart_full", gp.TileSize, gp.TileSize);
+			image = setup("/objects/heart_full", gp.TileSize, gp.TileSize);
+			image2 = setup("/objects/heart_half", gp.TileSize, gp.TileSize);
+			image3 = setup("/objects/heart_blank", gp.TileSize, gp.TileSize);
+		
+	}
+	
+	public void use(Entity entity) {
+		
+		gp.ui.addMessage("Life +" + value);
+		entity.life += value;
 	}
 }
