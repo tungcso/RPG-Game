@@ -49,20 +49,20 @@ public class TileManager {
 			setup(15,"BloodPool2", false);
 			setup(16,"Warning Sign ", false);	
 		
-		setup(0,"DatTrong", false);
-		setup(1,"Nuoc", true);
-		setup(2,"VungNuoc", true);
-		setup(3,"CaChet", false);
-		setup(4,"XuongHaMa", true);
-		setup(5,"Mau", true);
-		setup(6,"Cay", true);
-		setup(7,"grass", false);
-		setup(8,"ManhTren", true);
-		setup(9,"Ongthai", false);
-		setup(10,"CoUa", false);
-		setup(11,"CayBiChat", false);
-		setup(12,"hole", false);
-		setup(13,"fire", false);
+			setup(0,"DatTrong", false);
+			setup(1,"Nuoc", true);
+			setup(2,"VungNuoc", true);
+			setup(3,"CaChet", false);
+			setup(4,"XuongHaMa", true);
+			setup(5,"Mau", true);
+			setup(6,"Cay", true);
+			setup(7,"grass", false);
+			setup(8,"ManhTren", true);
+			setup(9,"Ongthai", false);
+			setup(10,"CoUa", false);
+			setup(11,"CayBiChat", false);
+			setup(12,"hole", false);
+			setup(13,"fire", false);
 	}
 	
 	
