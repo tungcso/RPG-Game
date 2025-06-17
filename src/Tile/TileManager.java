@@ -25,8 +25,9 @@ public class TileManager {
 		 mapTileNum = new int[gp.maxMap][gp.maxWorldCol][gp.maxWorldRow];
 		 
 		 getTileImage();
-		 loadMap("/maps/ConSongQue.txt", 0);
-		 loadMap("/maps/map1_final.txt", 1);
+		 loadMap("/maps/ConSongQue.txt", 2);
+		 loadMap("/maps/map1_final.txt", 0);
+		 loadMap("/maps/map2.txt", 1);
 	}
 	
 	public void getTileImage() {
@@ -49,20 +50,30 @@ public class TileManager {
 			setup(15,"BloodPool2", false);
 			setup(16,"Warning Sign ", false);	
 		
-			setup(0,"DatTrong", false);
-			setup(1,"Nuoc", true);
-			setup(2,"VungNuoc", true);
-			setup(3,"CaChet", false);
-			setup(4,"XuongHaMa", true);
-			setup(5,"Mau", true);
-			setup(6,"Cay", true);
-			setup(7,"grass", false);
-			setup(8,"ManhTren", true);
-			setup(9,"Ongthai", false);
-			setup(10,"CoUa", false);
-			setup(11,"CayBiChat", false);
-			setup(12,"hole", false);
-			setup(13,"fire", false);
+			setup(17,"dirt1", false);
+			setup(18,"dirt2", false);
+			setup(19,"grass2", false);
+			setup(20,"dead2", false);
+			setup(22,"fire2", false);
+			setup(23,"hole2", true);
+			setup(24,"water", false);
+			setup(25,"tree1", true);
+			setup(26,"Exit2", false);
+			
+			setup(27,"DatTrong", false);
+			setup(28,"Nuoc", true);
+			setup(29,"VungNuoc", true);
+			setup(30,"CaChet", false);
+			setup(31,"XuongHaMa", true);
+			setup(32,"Mau", true);
+			setup(33,"Cay", true);
+			setup(34,"grass", false);
+			setup(35,"ManhTren", true);
+			setup(36,"Ongthai", false);
+			setup(37,"CoUa", false);
+			setup(38,"CayBiChat", false);
+			setup(39,"hole", false);
+			setup(40,"fire", false);
 	}
 	
 	

@@ -52,10 +52,24 @@ public class EventHandler {
 		
 		if(canTouchEvent == true) {
 			
-			if(hit(0,10,14,"any") == true) {damagePit(gp.dialogueState);}
-			else if(hit(0,11,15,"any") == true) {healingPool(gp.dialogueState);}
-			else if(hit (0,12,16,"any") == true) {teleport(1, 12,11);}
-			else if(hit (1, 12,11,"any") == true) {teleport(0,12,16);}
+			if(hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
+//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
+//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
+//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
+//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
+//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
+//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
+//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
+//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
+//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
+//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
+//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
+//			else if(hit(0,11,15,"any") == true) {healingPool(gp.dialogueState);}
+			else if(hit (0,104,102,"any") == true) {teleport(1, 9,21);}
+			else if(hit (0,104,103,"any") == true) {teleport(1, 9,22);}
+			else if(hit (1, 9,23,"any") == true) {teleport(0,104,103);}
+			else if(hit (1,95,12,"any") == true) {teleport(2, 12,12);}
+			else if(hit (1,95,11,"any") == true) {teleport(2, 12,11);}
 		}
 		
 	}
@@ -90,7 +104,7 @@ public class EventHandler {
 	public void damagePit(int gameState) {
 		
 		gp.gameState = gameState;
-		gp.ui.currentDialogue = "You fall into a Pit";
+		gp.ui.currentDialogue = "You stepped on fire!";
 		gp.player.life -= 1;
 //		eventRect[col][row].eventDone = true;
 		canTouchEvent = false;

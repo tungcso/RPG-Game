@@ -21,41 +21,41 @@ public class AssetSetter {
 	}
 	public void setObject() {
 		
-		int mapNum = 0;
+		int mapNum = 1;
 		int i = 0;
-		gp.obj[mapNum][i] = new OBJ_Coin_Bronze(gp);
-		gp.obj[mapNum][i].worldX = gp.TileSize*17;
-		gp.obj[mapNum][i].worldY = gp.TileSize*11;
-		i++;
-		gp.obj[mapNum][i] = new OBJ_Heart(gp);
-		gp.obj[mapNum][i].worldX = gp.TileSize*12;
-		gp.obj[mapNum][i].worldY = gp.TileSize*17;
-		i++;
-		gp.obj[mapNum][i] = new OBJ_ManaCrystal(gp);
-		gp.obj[mapNum][i].worldX = gp.TileSize*19;
-		gp.obj[mapNum][i].worldY = gp.TileSize*25;
-		i++;
-		gp.obj[mapNum][i] = new OBJ_Axe(gp);
-		gp.obj[mapNum][i].worldX = gp.TileSize*12;
-		gp.obj[mapNum][i].worldY = gp.TileSize*9;
-		i++;
-		gp.obj[mapNum][i] = new OBJ_Shield_Blue(gp);
-		gp.obj[mapNum][i].worldX = gp.TileSize*11;
-		gp.obj[mapNum][i].worldY = gp.TileSize*9;
-		i++;
-		gp.obj[mapNum][i] = new OBJ_Potion_Red(gp);
-		gp.obj[mapNum][i].worldX = gp.TileSize*10;
-		gp.obj[mapNum][i].worldY = gp.TileSize*9;
+//		gp.obj[mapNum][i] = new OBJ_Coin_Bronze(gp);
+//		gp.obj[mapNum][i].worldX = gp.TileSize*17;
+//		gp.obj[mapNum][i].worldY = gp.TileSize*11;
+//		i++;
+//		gp.obj[mapNum][i] = new OBJ_Heart(gp);
+//		gp.obj[mapNum][i].worldX = gp.TileSize*12;
+//		gp.obj[mapNum][i].worldY = gp.TileSize*17;
+//		i++;
+//		gp.obj[mapNum][i] = new OBJ_ManaCrystal(gp);
+//		gp.obj[mapNum][i].worldX = gp.TileSize*19;
+//		gp.obj[mapNum][i].worldY = gp.TileSize*25;
+//		i++;
+//		gp.obj[mapNum][i] = new OBJ_Axe(gp);
+//		gp.obj[mapNum][i].worldX = gp.TileSize*12;
+//		gp.obj[mapNum][i].worldY = gp.TileSize*9;
+//		i++;
+//		gp.obj[mapNum][i] = new OBJ_Shield_Blue(gp);
+//		gp.obj[mapNum][i].worldX = gp.TileSize*11;
+//		gp.obj[mapNum][i].worldY = gp.TileSize*9;
+//		i++;
+//		gp.obj[mapNum][i] = new OBJ_Potion_Red(gp);
+//		gp.obj[mapNum][i].worldX = gp.TileSize*10;
+//		gp.obj[mapNum][i].worldY = gp.TileSize*9;
 		i++;
 //		gp.obj[1] = new OBJ_Door(gp);
 //		gp.obj[1].worldX = gp.TileSize*23;
 //		gp.obj[1].worldY = gp.TileSize*25;
 	}
 	public void setNPC() {
-		int mapNum = 0;
-		gp.NPC[mapNum][0] = new NPC_OldMan(gp);
-		gp.NPC[mapNum][0].worldX = gp.TileSize*11;
-		gp.NPC[mapNum][0].worldY = gp.TileSize *20;
+		int mapNum = 1;
+//		gp.NPC[mapNum][0] = new NPC_OldMan(gp);
+//		gp.NPC[mapNum][0].worldX = gp.TileSize*11;
+//		gp.NPC[mapNum][0].worldY = gp.TileSize *20;
 	}
 	
 	public void setMonster() {
@@ -82,11 +82,10 @@ public class AssetSetter {
 		gp.monster[mapNum][i].worldX = gp.TileSize* 35;
 		gp.monster[mapNum][i].worldY = gp.TileSize* 20;
 		i++;
-		
-//		mapNum =1;
-//		gp.monster[mapNum][i] = new MON_GreenSlime(gp);
-//		gp.monster[mapNum][i].worldX = gp.TileSize* 35;
-//		gp.monster[mapNum][i].worldY = gp.TileSize* 20;
-//		i++;
+		mapNum =1;
+		gp.monster[mapNum][i] = new MON_GreenSlime(gp);
+		gp.monster[mapNum][i].worldX = gp.TileSize* 35;
+		gp.monster[mapNum][i].worldY = gp.TileSize* 20;
+		i++;
 	}
 }
