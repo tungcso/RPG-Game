@@ -61,14 +61,14 @@ public class TileManager {
 			setup(26,"Exit2", false);
 			
 			setup(27,"DatTrong", false);
-			setup(28,"Nuoc", true);
-			setup(29,"VungNuoc", true);
+			setup(28,"Nuoc", false);
+			setup(29,"VungNuoc", false);
 			setup(30,"CaChet", false);
 			setup(31,"XuongHaMa", true);
-			setup(32,"Mau", true);
+			setup(32,"Mau", false);
 			setup(33,"Cay", true);
 			setup(34,"grass", false);
-			setup(35,"ManhTren", true);
+			setup(35,"ManhTren", false);
 			setup(36,"Ongthai", false);
 			setup(37,"CoUa", false);
 			setup(38,"CayBiChat", false);

@@ -18,7 +18,7 @@ public class NPC_OldMan extends Entity{
 		solidArea.height = 40;
 		solidAreaDefaultX = solidArea.x;
 		solidAreaDefaultY = solidArea.y;
-		setDialogue();
+		Talk();
 		getImage();
 		
 	}
@@ -35,14 +35,14 @@ public class NPC_OldMan extends Entity{
 
 	}
 	
-	public void setDialogue() {
+	public void Talk() {
 		
 		dialogue[0]= "Hello";
 		dialogue[1]= "Welcome to my world";
-		dialogue[2]= "anh Jack J97 J97 J97 Thien Ly oi, \nHong Nhan, Bac Phan, Song Gio, \nEm gi oi, Duoi tan cay kho hoa no";
+		dialogue[2]= "anh Jack J97 J97 J97 Thien Ly oi, Hong Nhan, \nBac Phan, Song Gio, Em gi oi, Duoi tan cay kho\n hoa noTram dung chan";
 		dialogue[3]= "my Idolllllllll!!!!!!!!!!!!!!";
 	}
-	public void setAction() {
+	public void Move() {
 		
 		actionLockCounter++;
 		

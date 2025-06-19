@@ -15,7 +15,6 @@ import main.GamePanel;
 import main.KeyHandler;
 import main.UtilityTool;
 import object.OBJ_Fireball;
-import object.OBJ_Key;
 import object.OBJ_Shield_Wood;
 import object.OBJ_Sword_Normal;
 
@@ -46,7 +45,7 @@ public class Player extends Entity{
 		solidArea.y = 1;
 		solidAreaDefaultX = solidArea.x;
 		solidAreaDefaultY = solidArea.y;
-		solidArea.width = 40;
+		solidArea.width = 38;
 		solidArea.height = 39;
 		
 //		attackArea.width = 36;
@@ -85,6 +84,7 @@ public class Player extends Entity{
 	
 	public void setDefaultPositions() {
 		
+		gp.currentMap = 0;
 		worldX = gp.TileSize * 12;
 		worldY = gp.TileSize * 11;
 		direction = "down";
@@ -99,8 +99,6 @@ public class Player extends Entity{
 		inventory.clear();
 		inventory.add(currentWeapon);
 		inventory.add(currentShield);
-		inventory.add(new OBJ_Key(gp));
-		inventory.add(new OBJ_Key(gp));
 	}
 	public int getAttack() {
 		
@@ -263,16 +261,12 @@ public class Player extends Entity{
 				life = maxLife;
 			}
 			if(mana >= maxMana) {
-				mana = maxMana;
-		
-			
-			}
-			
-			
+				mana = maxMana;		
+			}		
 			if(life <= 0) {
 				gp.gameState = gp.gameOverState;
 				gp.ui.commandNum -=1;
-			}
+			}		
 		}
 		
 	public void attacking() {
@@ -331,9 +325,7 @@ public class Player extends Entity{
 				
 				gp.obj[gp.currentMap][i].use(this);
 				gp.obj[gp.currentMap][i] = null;
-			}
-			
-			
+			}	
 			//inventory items
 			
 			else {
@@ -417,6 +409,7 @@ public class Player extends Entity{
 			level ++;
 			nextLevelExp = nextLevelExp*2;
 			maxLife +=2;
+			life = maxLife;
 			strength++;
 			dexterity++;
 			attack = getAttack();

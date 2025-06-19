@@ -91,7 +91,7 @@ public class GamePanel extends JPanel implements Runnable{
 		aSetter.setNPC();
 		aSetter.setMonster();
 		playMusic(0);
-		stopMusic();
+//		stopMusic();
 		gameState = titleState;
 		
 		tempScreen = new BufferedImage(ScreenWidth, ScreenHeight, BufferedImage.TYPE_INT_ARGB);
@@ -104,12 +104,14 @@ public class GamePanel extends JPanel implements Runnable{
 	}
 	public void retry() {
 		
+		
 		player.setDefaultPositions();
 		player.RestoreLifeAndMana();
 		aSetter.setNPC();
 		aSetter.setMonster();
 	
 	}
+	
 	public void restart() {
 		player.setDefaultValue();
 		player.setDefaultPositions();
@@ -172,6 +174,7 @@ public class GamePanel extends JPanel implements Runnable{
 	public void update() {
 		
 		if(gameState == playState) {
+			
 			player.update();
 			
 			//NPC
@@ -187,7 +190,7 @@ public class GamePanel extends JPanel implements Runnable{
 					 monster[currentMap][i].update();
 				 }
 				 if(monster[currentMap][i].alive == false) {
-					 monster[currentMap][i].checkDrop();
+					 monster[currentMap][i].Die();
 					 monster[currentMap][i] = null;
 				 }
 			 }
@@ -288,17 +291,14 @@ public class GamePanel extends JPanel implements Runnable{
 		g.dispose();
 	}
 	public void playMusic(int i) {
-		
 		music.setFire(i);
 		music.play();
 		music.loop();
 	}
 	public void stopMusic() {
-		
 		music.stop();
 	}
 	public void playSE(int i) {
-		
 		se.setFire(i);
 		se.play();
 	}

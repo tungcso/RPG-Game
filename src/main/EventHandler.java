@@ -53,23 +53,14 @@ public class EventHandler {
 		if(canTouchEvent == true) {
 			
 			if(hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
-//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
-//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
-//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
-//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
-//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
-//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
-//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
-//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
-//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
-//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
-//			else if (hit(1,21,18,"any") == true) {damagePit(gp.dialogueState);}
-//			else if(hit(0,11,15,"any") == true) {healingPool(gp.dialogueState);}
 			else if(hit (0,104,102,"any") == true) {teleport(1, 9,21);}
 			else if(hit (0,104,103,"any") == true) {teleport(1, 9,22);}
-			else if(hit (1, 9,23,"any") == true) {teleport(0,104,103);}
+			else if(hit (1, 7,21,"any") == true) {teleport(0,104,102);}
+			else if(hit (1, 7,22,"any") == true) {teleport(0,104,103);}
 			else if(hit (1,95,12,"any") == true) {teleport(2, 12,12);}
 			else if(hit (1,95,11,"any") == true) {teleport(2, 12,11);}
+			else if(hit (2,10,9,"any") == true) {teleport(1,95,12);}
+			else if(hit (2,10,8,"any") == true) {teleport(1,95,11);}
 		}
 		
 	}
@@ -133,6 +124,8 @@ public class EventHandler {
 		previousEventY = gp.player.worldY;
 		canTouchEvent = false;
 	}
+	
+
 }
 
 

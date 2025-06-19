@@ -21,8 +21,10 @@ public class OBJ_Coin_Bronze extends Entity{
 	
 	public void use(Entity entity) {
 		
+		gp.playMusic(1);
 		gp.ui.addMessage("Coin +" + value);
 		gp.player.coin += value;
+		gp.stopMusic();
 	}
 
 }

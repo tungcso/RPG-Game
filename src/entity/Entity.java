@@ -83,6 +83,7 @@ public class Entity {
 	public final int type_shield = 5;
 	public final int type_consumable = 6;
 	public final int type_pickupOnly = 7;
+	public final int type_VictoryItem = 8;
 	
 	public Entity(GamePanel gp) {
 	this.gp = gp;
@@ -110,9 +111,11 @@ public class Entity {
 			break;
 		}
 	}
-	public void setAction() {
+	public void ProtectTerritory() {
 		
 	}
+	
+	public void Move() {}
 	public void damageReaction() {
 		
 	}
@@ -120,7 +123,7 @@ public class Entity {
 		
 	}
 	
-	public void checkDrop() {
+	public void Die() {
 		
 	}
 	public void dropItem(Entity droppedItem) {
@@ -135,8 +138,8 @@ public class Entity {
 		}
 	}
  	public void update() {
-		
-		setAction();
+ 		Move();
+ 		ProtectTerritory();
 		
 		collisionOn = false;
 		gp.cChecker.checkTile(this);
