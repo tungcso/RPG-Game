@@ -13,11 +13,10 @@ import entity.projectile.Projectile;
 import main.GamePanel;
 import main.UtilityTool;
 
-public class Entity {
+public abstract class Entity {
 
 	protected GamePanel gp;
 	
-
 	public BufferedImage up1, up2, down1, down2, right1, right2, left1, left2;
 	public BufferedImage attackUp1, attackUp2, attackDown1, attackDown2, attackLeft1, attackLeft2, attackRight1, attackRight2;
 	public Rectangle solidArea = new Rectangle(0,0,48,48);
@@ -200,7 +199,6 @@ public class Entity {
 	}
 	
 	
-	
 	public void draw(Graphics2D g2) {
 		
 		BufferedImage image = null;
@@ -291,13 +289,13 @@ public class Entity {
 		int i = 5;
 		
 		if(dyingCounter <= i) {	changeAlpha(g2, 0f);	}		
-		if(dyingCounter > i	 && dyingCounter <= i*2) {	changeAlpha(g2, 1f);	}		
-		if(dyingCounter > i *2 && dyingCounter <= i*3) {	changeAlpha(g2, 0f);	}
-		if(dyingCounter > i *3 && dyingCounter <= i*4) {		changeAlpha(g2, 1f);	}
-		if(dyingCounter > i *4 && dyingCounter <= i*5) {		changeAlpha(g2, 0f);	}
-		if(dyingCounter > i *5 && dyingCounter <= i*6) {	changeAlpha(g2, 1f);	}
-		if(dyingCounter > i *6 && dyingCounter <= i*7) {	changeAlpha(g2, 0f);	}
-		if(dyingCounter > i *7 && dyingCounter <= i*8) {	changeAlpha(g2, 1f);	}
+		if(dyingCounter > i	 && dyingCounter <= i*2)   {changeAlpha(g2, 1f);	}		
+		if(dyingCounter > i *2 && dyingCounter <= i*3) {changeAlpha(g2, 0f);	}
+		if(dyingCounter > i *3 && dyingCounter <= i*4) {changeAlpha(g2, 1f);	}
+		if(dyingCounter > i *4 && dyingCounter <= i*5) {changeAlpha(g2, 0f);	}
+		if(dyingCounter > i *5 && dyingCounter <= i*6) {changeAlpha(g2, 1f);	}
+		if(dyingCounter > i *6 && dyingCounter <= i*7) {changeAlpha(g2, 0f);	}
+		if(dyingCounter > i *7 && dyingCounter <= i*8) {changeAlpha(g2, 1f);	}
 		if(dyingCounter > i *8) {
 			alive = false;
 		}	

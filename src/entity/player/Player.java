@@ -20,8 +20,7 @@ import main.KeyHandler;
 import main.UtilityTool;
 
 public class Player extends Entity{
-	
-	
+		
 	KeyHandler keyH;
 	
 	public final int screenX;
@@ -513,17 +512,3 @@ public class Player extends Entity{
 //		g2.drawString("Invincible: "+ invincibleCounter, 10, 400);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

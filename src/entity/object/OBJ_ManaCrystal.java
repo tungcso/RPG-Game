@@ -11,9 +11,8 @@ public class OBJ_ManaCrystal extends Entity{
 		super(gp);
 		this.gp = gp;
 		
-		
 		type = type_pickupOnly;
-		value =1;
+		value = 1;
 		name = "Mana Crystal";
 		down1 = setup("/objects/manacrystal_full", gp.TileSize, gp.TileSize);
 		image2 = setup("/objects/manacrystal_blank", gp.TileSize, gp.TileSize);
@@ -23,7 +22,7 @@ public class OBJ_ManaCrystal extends Entity{
 	public void use(Entity entity) {
 		
 		gp.ui.addMessage("Mana +" + value);
-		entity.mana += value;
+		entity.mana = value;
 	}
 
 }

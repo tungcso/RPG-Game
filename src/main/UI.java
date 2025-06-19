@@ -70,11 +70,13 @@ public class UI {
 		if(gp.gameState == gp.playState) {
 			drawPlayerLife();
 			drawMessage();
+			
 		}
 		//pausestate
 		if(gp.gameState == gp.pauseState) {
 			drawPlayerLife();
 			drawPauseScreen();
+			
 		}
 		//dialoguestate
 		if(gp.gameState == gp.dialogueState) {
@@ -94,6 +96,7 @@ public class UI {
 		//gameover state
 		if(gp.gameState == gp.gameOverState) {
 			drawGameOverScreen();
+			gp.stopMusic();
 		}
 	}
 	public void drawPlayerLife() {

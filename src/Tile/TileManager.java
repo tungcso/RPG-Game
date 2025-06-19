@@ -138,7 +138,7 @@ public class TileManager {
 			
 			int tileNum = mapTileNum[gp.currentMap][worldCol][worldRow];
 				
-//video 6
+
 			int worldX = worldCol * gp.TileSize;
 			int worldY = worldRow * gp.TileSize;
 			int screenX = worldX - gp.player.worldX + gp.player.screenX;

@@ -61,7 +61,12 @@ public class AssetSetter {
 	public void setMonster() {
 		
 		 int i = 0;
-		 int mapNum = 1;
+		 int mapNum = 0;
+//		 gp.monster[mapNum][i] = new MON_GreenSlime(gp);
+//			gp.monster[mapNum][i].worldX = gp.TileSize* 11;
+//			gp.monster[mapNum][i].worldY = gp.TileSize* 10;
+//			i++;		 
+		mapNum = 1;
 		gp.monster[mapNum][i] = new MON_GreenSlime(gp);
 		gp.monster[mapNum][i].worldX = gp.TileSize* 21;
 		gp.monster[mapNum][i].worldY = gp.TileSize* 28;
