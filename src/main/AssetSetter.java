@@ -1,13 +1,13 @@
 package main;
 
-import entity.NPC_OldMan;
-import monster.MON_GreenSlime;
-import object.OBJ_Axe;
-import object.OBJ_Coin_Bronze;
-import object.OBJ_Heart;
-import object.OBJ_ManaCrystal;
-import object.OBJ_Potion_Red;
-import object.OBJ_Shield_Blue;
+import entity.monster.MON_GreenSlime;
+import entity.npc.NPC_OldMan;
+import entity.object.OBJ_Axe;
+import entity.object.OBJ_Coin_Bronze;
+import entity.object.OBJ_Heart;
+import entity.object.OBJ_ManaCrystal;
+import entity.object.OBJ_Potion_Red;
+import entity.object.OBJ_Shield_Blue;
 
 public class AssetSetter {
 

@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 
 import Tile.TileManager;
 import entity.Entity;
-import entity.Player;
+import entity.player.Player;
 
 public class GamePanel extends JPanel implements Runnable{
 	

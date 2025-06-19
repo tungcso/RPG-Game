@@ -9,12 +9,13 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import entity.projectile.Projectile;
 import main.GamePanel;
 import main.UtilityTool;
 
 public class Entity {
 
-	GamePanel gp;
+	protected GamePanel gp;
 	
 
 	public BufferedImage up1, up2, down1, down2, right1, right2, left1, left2;
@@ -22,7 +23,7 @@ public class Entity {
 	public Rectangle solidArea = new Rectangle(0,0,48,48);
 	public Rectangle attackArea = new Rectangle( 0, 0, 0 ,0);
 	public int solidAreaDefaultX, solidAreaDefaultY;
-	String dialogue[] = new String[20];
+	protected String dialogue[] = new String[20];
 	public BufferedImage image,  image2, image3;
 	public boolean collision = false;
 	

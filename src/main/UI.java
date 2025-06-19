@@ -8,9 +8,8 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import entity.Entity;
-
-import object.OBJ_Heart;
-import object.OBJ_ManaCrystal;
+import entity.object.OBJ_Heart;
+import entity.object.OBJ_ManaCrystal;
 
 public class UI {
 
