@@ -15,6 +15,7 @@ import entity.Entity;
 import entity.object.OBJ_Fireball;
 import entity.object.OBJ_Shield_Wood;
 import entity.object.OBJ_Sword_Normal;
+import entity.object.SuperObjects;
 import main.GamePanel;
 import main.KeyHandler;
 import main.UtilityTool;
@@ -29,7 +30,7 @@ public class Player extends Entity{
 	boolean moving = false;	
 	int pixelCounter = 0;
 	public boolean attackCanceled = false;
-	public ArrayList<Entity> inventory = new ArrayList<>();
+	public ArrayList<SuperObjects> inventory = new ArrayList<>();
 	public final int maxInventorySize = 20;
 	
 	public Player(GamePanel gp, KeyHandler keyH) {
@@ -427,7 +428,7 @@ public class Player extends Entity{
 		
 		if(itemIndex < inventory.size()) {
 			
-			Entity selectedItem = inventory.get(itemIndex);
+			SuperObjects selectedItem = inventory.get(itemIndex);
 			
 			if(selectedItem.type == type_sword || selectedItem.type == type_axe) {
 				

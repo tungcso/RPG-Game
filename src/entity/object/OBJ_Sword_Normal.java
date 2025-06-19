@@ -3,7 +3,7 @@ package entity.object;
 import entity.Entity;
 import main.GamePanel;
 
-public class OBJ_Sword_Normal extends Entity{
+public class OBJ_Sword_Normal extends SuperObjects{
 
 	public OBJ_Sword_Normal(GamePanel gp) {
 		super(gp);

@@ -17,6 +17,10 @@ import javax.swing.JPanel;
 import Tile.TileManager;
 import entity.Entity;
 import entity.player.Player;
+import entity.projectile.Projectile;
+import entity.monster.*;
+import entity.npc.NPC_OldMan;
+import entity.object.SuperObjects;
 
 public class GamePanel extends JPanel implements Runnable{
 	
@@ -59,11 +63,11 @@ public class GamePanel extends JPanel implements Runnable{
 	
 	//ENTITY AND OBJECT
 	public Player player = new Player(this,keyH);
-	public Entity obj[][] = new Entity[maxMap][30];
-	public Entity NPC[][] = new Entity[maxMap][10];
-	public Entity monster[][] = new Entity[maxMap][20];
+	public SuperObjects obj[][] = new SuperObjects[maxMap][30];
+	public NPC_OldMan NPC[][] = new NPC_OldMan[maxMap][10];
+	public MON_GreenSlime monster[][] = new MON_GreenSlime[maxMap][20];
 	ArrayList<Entity> entityList = new ArrayList<>();
-	public ArrayList<Entity> projectileList = new ArrayList<>();
+	public ArrayList<Projectile> projectileList = new ArrayList<>();
 	
 	//Game State
 	public int gameState;
@@ -179,6 +183,7 @@ public class GamePanel extends JPanel implements Runnable{
 			for(int i = 0; i < NPC[1].length; i++) {
 				if(NPC[currentMap][i] != null) {
 					NPC[currentMap][i].update();
+					NPC[currentMap][i].Move();
 				}
 			}
 			
@@ -186,6 +191,7 @@ public class GamePanel extends JPanel implements Runnable{
 			 if(monster[currentMap][i] != null) {
 				 if(monster[currentMap][i].alive == true && monster[currentMap][i].dying == false) {
 					 monster[currentMap][i].update();
+					 monster[currentMap][i].ProtectTerritory();					 
 				 }
 				 if(monster[currentMap][i].alive == false) {
 					 monster[currentMap][i].Die();
@@ -211,8 +217,13 @@ public class GamePanel extends JPanel implements Runnable{
 		if(gameState == pauseState) {
 			//nothing
 		}
+		
 
 	}
+	
+	
+	
+	
 	public void drawToTempScreen() {
 		//Title screen
 				if(gameState == titleState) {

@@ -3,7 +3,7 @@ package entity.object;
 import entity.Entity;
 import main.GamePanel;
 
-public class OBJ_ManaCrystal extends Entity{
+public class OBJ_ManaCrystal extends SuperObjects{
 
 	GamePanel gp;
 	

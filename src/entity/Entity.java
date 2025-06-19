@@ -9,6 +9,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import entity.object.SuperObjects;
 import entity.projectile.Projectile;
 import main.GamePanel;
 import main.UtilityTool;
@@ -30,7 +31,7 @@ public abstract class Entity {
 	public String direction = "down";
 	public int worldX, worldY;
 	public int spriteNum = 1;
-	int dialogueIndex = 0;
+	protected int dialogueIndex = 0;
 	public boolean invincible = false;
 	public boolean collisionOn = false;
 	public boolean attacking = false;
@@ -62,8 +63,8 @@ public abstract class Entity {
 	public int exp;
 	public int nextLevelExp;
 	public int coin;
-	public Entity currentWeapon;
-	public Entity currentShield;
+	public SuperObjects currentWeapon;
+	public SuperObjects currentShield;
 	public Projectile projectile;
 	
 	//item attributes
@@ -83,122 +84,12 @@ public abstract class Entity {
 	public final int type_shield = 5;
 	public final int type_consumable = 6;
 	public final int type_pickupOnly = 7;
-	public final int type_VictoryItem = 8;
 	
 	public Entity(GamePanel gp) {
 	this.gp = gp;
 	}
-	
-	public void speak() {
-		if(dialogue[dialogueIndex] == null) {
-			dialogueIndex = 0;
-		}
-		gp.ui.currentDialogue = dialogue[dialogueIndex];
-		dialogueIndex++;
 
-		switch(gp.player.direction) {
-		case "up":
-			direction ="down";
-			break;
-		case "down":
-			direction ="up";
-			break;
-		case "left":
-			direction ="right";
-			break;
-		case "right":
-			direction ="left";
-			break;
-		}
-	}
-	public void ProtectTerritory() {
 		
-	}
-	
-	public void Move() {}
-	public void damageReaction() {
-		
-	}
-	public void use(Entity entity) {
-		
-	}
-	
-	public void Die() {
-		
-	}
-	public void dropItem(Entity droppedItem) {
-		
-		for ( int i = 0; i < gp.obj[1].length; i++) {
-			if(gp.obj[gp.currentMap][i] == null) {
-				gp.obj[gp.currentMap][i] = droppedItem;
-				gp.obj[gp.currentMap][i].worldX = worldX; // the dead of monster
-				gp.obj[gp.currentMap][i].worldY = worldY;
-				break;
-			}
-		}
-	}
- 	public void update() {
- 		Move();
- 		ProtectTerritory();
-		
-		collisionOn = false;
-		gp.cChecker.checkTile(this);
-		gp.cChecker.checkObject(this, false);
-		gp.cChecker.checkEntity(this, gp.NPC);
-		gp.cChecker.checkEntity(this, gp.monster);
-		boolean contactPlayer = gp.cChecker.checkPlayer(this);
-		
-		if(this.type == type_monster && contactPlayer == true) {
-			damagePlayer(attack);	
-		}
-		
-		//if collision is false, player can move
-		if(collisionOn == false) {
-			
-			switch(direction) {
-			case "up":	 worldY -= speed; break;
-			case "down": worldY += speed; break;
-			case "left": worldX -= speed; break;
-			case "right":worldX += speed; break;
-			}
-		}
-		spriteCounter ++;
-		if(spriteCounter > 12) {
-			if(spriteNum == 1) {
-				spriteNum = 2;
-			}
-			else if(spriteNum == 2) {
-				spriteNum = 1;
-			}
-			spriteCounter = 0;
-		}
-		
-		if(invincible == true) {
-			invincibleCounter ++;
-			if(invincibleCounter > 40) {
-				invincible = false;
-				invincibleCounter = 0;
-			}
-		}
-		if(shotAvailableCounter < 30) {
-			shotAvailableCounter ++;
-		}
-	}
-	
-	public void damagePlayer(int attack) {
-		if(gp.player.invincible == false) {
-			//we can give damage
-			
-			int damage = attack - gp.player.defense;
-			if(damage < 0 ) {
-				damage = 0;
-			}
-			gp.player.life -= damage;
-			gp.player.invincible = true;
-		}
-	}
-	
-	
 	public void draw(Graphics2D g2) {
 		
 		BufferedImage image = null;
@@ -299,13 +190,12 @@ public abstract class Entity {
 		if(dyingCounter > i *8) {
 			alive = false;
 		}	
-		}
+	}
 	
-		public void changeAlpha(Graphics2D g2, float alphaValue) {
+	public void changeAlpha(Graphics2D g2, float alphaValue) {
 			g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alphaValue));
 	
 	}
-
 
 	public BufferedImage setup(String imagePath, int width, int height) {
 		

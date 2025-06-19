@@ -69,11 +69,46 @@ public class NPC_OldMan extends Entity{
 			
 			actionLockCounter = 0;
 		}
-		}
-
+	}
+	
 	public void speak() {
+		if(dialogue[dialogueIndex] == null) {
+			dialogueIndex = 0;
+		}
+		gp.ui.currentDialogue = dialogue[dialogueIndex];
+		dialogueIndex++;
+
+		switch(gp.player.direction) {
+		case "up":
+			direction ="down";
+			break;
+		case "down":
+			direction ="up";
+			break;
+		case "left":
+			direction ="right";
+			break;
+		case "right":
+			direction ="left";
+			break;
+		}
+	}
+	public void update() {
 		
-		super.speak();
+		collisionOn = false;
+		gp.cChecker.checkTile(this);
+		gp.cChecker.checkPlayer(this);
+		
+		//if collision is false, player can move
+		if(collisionOn == false) {
+			
+			switch(direction) {
+			case "up":	 worldY -= speed; break;
+			case "down": worldY += speed; break;
+			case "left": worldX -= speed; break;
+			case "right":worldX += speed; break;
+			}
+		}
 	}
 }
 

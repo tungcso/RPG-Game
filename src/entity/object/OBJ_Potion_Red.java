@@ -3,7 +3,7 @@ package entity.object;
 import entity.Entity;
 import main.GamePanel;
 
-public class OBJ_Potion_Red extends Entity{
+public class OBJ_Potion_Red extends SuperObjects{
 
 	GamePanel gp;	
 	

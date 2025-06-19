@@ -4,7 +4,7 @@ package entity.object;
 import entity.Entity;
 import main.GamePanel;
 
-public class OBJ_Heart extends Entity{
+public class OBJ_Heart extends SuperObjects{
 
 	GamePanel gp;
 	

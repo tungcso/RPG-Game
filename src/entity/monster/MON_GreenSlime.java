@@ -7,6 +7,7 @@ import entity.object.OBJ_Coin_Bronze;
 import entity.object.OBJ_Heart;
 import entity.object.OBJ_ManaCrystal;
 import entity.object.OBJ_Rock;
+import entity.object.SuperObjects;
 import main.GamePanel;
 
 public class MON_GreenSlime extends Entity{
@@ -103,7 +104,68 @@ public class MON_GreenSlime extends Entity{
 		
 	}
 	
+	public void update() {
+		
+		collisionOn = false;
+		gp.cChecker.checkTile(this);
+		gp.cChecker.checkPlayer(this);
+		
+		//if collision is false, player can move
+		if(collisionOn == false) {
+
+			switch(direction) {
+			case "up":	 worldY -= speed; break;
+			case "down": worldY += speed; break;
+			case "left": worldX -= speed; break;
+			case "right":worldX += speed; break;
+			}
+		}
+		spriteCounter ++;
+		if(spriteCounter > 12) {
+			if(spriteNum == 1) {
+				spriteNum = 2;
+			}
+			else if(spriteNum == 2) {
+				spriteNum = 1;
+			}
+			spriteCounter = 0;
+		}		
+		if(invincible == true) {
+			invincibleCounter ++;
+			if(invincibleCounter > 40) {
+				invincible = false;
+				invincibleCounter = 0;
+			}
+		}
+		if(shotAvailableCounter < 30) {
+			shotAvailableCounter ++;
+		}
+	}
 	
+	public void damagePlayer(int attack) {
+		if(gp.player.invincible == false) {
+			//we can give damage
+			
+			int damage = attack - gp.player.defense;
+			if(damage < 0 ) {
+				damage = 0;
+			}
+			gp.player.life -= damage;
+			gp.player.invincible = true;
+		}
+	}
+	
+	public void dropItem(SuperObjects droppedItem) {
+		
+		for ( int i = 0; i < gp.obj[1].length; i++) {
+			if(gp.obj[gp.currentMap][i] == null) {
+				gp.obj[gp.currentMap][i] = droppedItem;
+				gp.obj[gp.currentMap][i].worldX = worldX; // the dead of monster
+				gp.obj[gp.currentMap][i].worldY = worldY;
+				break;
+			}
+		}
+	}
 }
 
 

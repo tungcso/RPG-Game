@@ -3,7 +3,7 @@ package entity.object;
 import entity.Entity;
 import main.GamePanel;
 
-public class OBJ_Coin_Bronze extends Entity{
+public class OBJ_Coin_Bronze extends SuperObjects{
 
 	GamePanel gp;
 	

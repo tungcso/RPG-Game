@@ -67,6 +67,21 @@ public class Projectile extends Entity{
 		}
 	}
 	
+	
+	
+	public void damagePlayer(int attack) {
+		if(gp.player.invincible == false) {
+			//we can give damage
+			
+			int damage = attack - gp.player.defense;
+			if(damage < 0 ) {
+				damage = 0;
+			}
+			gp.player.life -= damage;
+			gp.player.invincible = true;
+		}
+	}
+	
 	public boolean haveResource(Entity user) {
 		
 		boolean haveResource = false;
