@@ -7,6 +7,7 @@ public class OBJ_Shield_Wood extends SuperObjects{
 
 	public OBJ_Shield_Wood(GamePanel gp) {
 		super(gp);
+
 		
 		type = type_shield;
 		name = "Wood Shield";

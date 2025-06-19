@@ -16,12 +16,20 @@ import entity.object.OBJ_Fireball;
 import entity.object.OBJ_Shield_Wood;
 import entity.object.OBJ_Sword_Normal;
 import entity.object.SuperObjects;
+import entity.projectile.Projectile;
 import main.GamePanel;
 import main.KeyHandler;
 import main.UtilityTool;
 
 public class Player extends Entity{
-		
+	public Projectile projectile;
+	public int strength;
+	public int dexterity;
+	public int level;
+	public int nextLevelExp;
+	public int coin;
+	public SuperObjects currentWeapon;
+	public SuperObjects currentShield;
 	KeyHandler keyH;
 	
 	public final int screenX;
@@ -75,7 +83,6 @@ public class Player extends Entity{
 		nextLevelExp = 5;
 		coin = 0;
 		maxMana = 4;
-		ammo = 10;
 		mana = maxMana;
 		currentWeapon = new OBJ_Sword_Normal(gp);
 		currentShield = new OBJ_Shield_Wood(gp);

@@ -1,6 +1,7 @@
 package entity.object;
 
 import entity.Entity;
+import entity.monster.MON_GreenSlime;
 import entity.projectile.Projectile;
 import main.GamePanel;
 
@@ -31,7 +32,7 @@ public class OBJ_Rock extends Projectile{
 		right1 = setup("/projectile/rock_down_1", gp.TileSize, gp.TileSize);
 		right2 = setup("/projectile/rock_down_1", gp.TileSize, gp.TileSize);
 	}
-	public boolean haveResource(Entity user) {
+	public boolean haveResource(MON_GreenSlime user) {
 		
 		boolean haveResource = false;
 		if(user.ammo >= useCost) {
@@ -40,7 +41,7 @@ public class OBJ_Rock extends Projectile{
 		return haveResource;
 	}
 	
-	public void subtractResource(Entity user) {
+	public void subtractResource(MON_GreenSlime user) {
 		user.ammo -= useCost;
 	}
 }

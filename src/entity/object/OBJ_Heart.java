@@ -2,6 +2,7 @@ package entity.object;
 
 
 import entity.Entity;
+import entity.player.Player;
 import main.GamePanel;
 
 public class OBJ_Heart extends SuperObjects{

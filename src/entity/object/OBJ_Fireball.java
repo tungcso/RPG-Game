@@ -1,6 +1,7 @@
 package entity.object;
 
 import entity.Entity;
+import entity.player.Player;
 import entity.projectile.Projectile;
 import main.GamePanel;
 

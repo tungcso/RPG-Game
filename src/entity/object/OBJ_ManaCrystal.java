@@ -1,6 +1,7 @@
 package entity.object;
 
 import entity.Entity;
+import entity.player.Player;
 import main.GamePanel;
 
 public class OBJ_ManaCrystal extends SuperObjects{
